@@ -1,0 +1,93 @@
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+
+*{
+    /*Margenes*/
+    margin: 0px;
+    padding: 0px;
+    /*Tipo de letra*/
+    font-family: 'Roboto', sans-serif;
+    /*Display*/
+    box-sizing: border-box;
+}
+
+body{
+    /*Display*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /*Tamaño*/
+    height: 100vh;
+    /*Background*/
+    background: url(../img/fondo1.jpg)no-repeat center center/cover;
+    /*Alineamiento*/
+    text-align: center;
+}
+
+#contenedor{
+    /*Display*/
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /*Tamaño*/
+    height: 80vh;
+    width: 90vh;
+    /*Border*/
+    border: 10px solid black;
+    border-radius: 13%;
+}
+
+button{
+    width: 260px;
+    height: 80px;
+    font-weight: bold;
+}
+
+button:hover{
+    background-color: rgba(0, 102, 255, 0.295);
+}
+
+h1{
+    /*Tamaño*/
+    font-size: 7rem;
+    /*Margenes*/
+    margin: 20px 10px;
+    width: 100%;
+    /*Color*/
+    color: white;
+}
+
+#botones{
+    /*Display*/
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.btn{
+    margin: 10px 0px;
+    font-size: 2rem;
+    height: 80px;
+}
+</style>
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../img/icons8-cerebro-50.png" type="img/png">
+    <title>Proyecto Memoria</title>
+</head>
+<body>
+    <div id="contenedor">
+        <h1>Bienvenidos</h1>
+        <div id="botones">
+            <button class="btn" id="jugar">Jugar</button>
+            <button class="btn" id="configuracion">Configuracion</button>
+        </div>
+    </div>
+</body>
+</html>

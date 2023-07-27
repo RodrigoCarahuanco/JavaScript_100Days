@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+    <%=titulo%>
+  </title>
+  <%-include('partials/head.ejs')%>
+  <link rel="icon" type="img/png" href="img/check-icon.png">
+</head>
+
+<body>
+  <%-include('partials/navbar.ejs')%>
+    <div id="contenedor">
+      <h1 id="titulo">Proyecto Lista de tareas</h1>
+      <form>
+        <input id="entrada" placeholder="Crear una tarea...">
+        <button id="btn-add">✔️</button>
+      </form>
+
+      <div id="lista-tareas">
+        <ul>
+
+        </ul>
+      </div>
+
+      <div id="vacio">
+        <p>No tienes tareas pendientes</p>
+      </div>
+    </div>
+    <%-include('partials/creditos.ejs')%>
+    <style>
+      #contenedor{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 80vh;
+        width: 100%;
+        background: rgb(168, 226, 168);
+      }
+
+      h1{
+        font-size: 3rem;
+      }
+
+      form{
+        display:flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      #entrada{
+        font-size: 1rem;
+        height: 40px;
+        width: 250px;
+      }
+
+      #btn-add{
+        height: 40px;
+      }
+
+      #lista-tareas{
+        margin: 5px 0px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      li{
+        margin: 10px 0px;
+      }
+
+    </style>
+    <script>
+      const input = document.getElementById("entrada");
+      const addBtn = document.getElementById("btn-add");
+      const ul = document.querySelector("ul");
+      const empty = document.getElementById("vacio");
+
+      addBtn.addEventListener("click",(e)=>{
+        e.preventDefault();
+
+        const text = input.value;
+
+        if(text !== ""){
+          const li = document.createElement("li");
+          const p = document.createElement("p");
+          p.textContent = text;
+
+          li.appendChild(p);
+          li.appendChild(addDeleteBtn());
+          ul.appendChild(li);
+
+          input.value = "";
+          empty.style.display = "none";
+        }
+      });
+
+      function addDeleteBtn(){
+        const deleteBtn = document.createElement("button");
+
+        deleteBtn.textContent = "X";
+        deleteBtn.className = "btn-delete";
+
+        deleteBtn.addEventListener("click",(e) => {
+          const item  = e.target.parentElement;
+          ul.removeChild(item);
+
+          const items = document.querySelectorAll("li");
+
+          if(items.length === 0){
+            empty.style.display = "block";
+          }
+        });
+
+        return deleteBtn;
+      }
+    </script>
+</body>
+
+</html>
